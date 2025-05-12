@@ -2,10 +2,8 @@ import openpyxl
 import pyperclip
 import pyautogui as pg
 from time import sleep
-import os
-import shutil
 
-t = 2.5  # Tempo de pausa entre ações
+t = 2.4  # Tempo de pausa entre ações
 
 # === CARREGAR PLANILHA === #
 work = openpyxl.load_workbook('BD_Ass.xlsx')
@@ -36,14 +34,14 @@ for line in plan.iter_rows(min_row=2):
     sleep(5)
     
     # === TROCANDO PARA SUPORTE.TI === #
-    pg.click(147,168)
+    pg.click(144,174) #clique em "DE"
     sleep(t)
     pg.press('down')
     pg.press('enter')
     sleep(t)
     
     # === COLANDO E-MAIL === #
-    pg.click(199,210)
+    pg.click(199,210) #clique em "PARA"
     pyperclip.copy(email)
     pg.hotkey('ctrl', 'v')
     sleep(t)
@@ -51,7 +49,7 @@ for line in plan.iter_rows(min_row=2):
     sleep(t)
     
     # ==== COLANDO ASSUNTO === #
-    pg.click(220,333)
+    pg.click(220,333) #clique em "Assunto"
     pyperclip.copy(assunto)
     pg.hotkey('ctrl', 'v')
     sleep(t)
@@ -85,13 +83,13 @@ for line in plan.iter_rows(min_row=2):
     pg.press('enter')
     sleep(t)
     
-    pg.click(596,236)
+    pg.click(562,272) #clique em um espaço vazio da pasta do colaborador
     sleep(t)
     
     # ==== COPIANDO OS ARQUIVOS DA PASTA === #
     pg.hotkey('ctrl', 'a')
     pg.hotkey('enter')
-    pg.click(58,181)
+    pg.click(58,181) #clique me enviar
     sleep(t)
     
 pg.alert('SCRIPT FINALIZADO!')
